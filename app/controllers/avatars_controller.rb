@@ -29,11 +29,6 @@ class AvatarsController < ApplicationController
   
     respond_to do |format|
       if @avatar.save
-        unless @avatar.generated
-          @avatar.image_location = AvatarGenerator.from_seed(@avatar.id)
-          @avatar.generated = true
-          @avatar.save
-        end
         format.html { redirect_to @avatar, notice: 'Avatar was successfully created.' }
         format.json { render :show, status: :created, location: @avatar }
       else
@@ -65,6 +60,14 @@ class AvatarsController < ApplicationController
       format.html { redirect_to avatars_url, notice: 'Avatar was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def regenerate
+    Avatar.all.each do |avatar|
+      avatar.generated = false
+      avatar.save
+    end
+    redirect_to avatars_path
   end
 
   private

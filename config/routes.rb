@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :avatars
+  get 'regenerate', as: :avatars_regenerate, to: "avatars#regenerate"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
