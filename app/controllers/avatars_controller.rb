@@ -1,3 +1,4 @@
+require_relative '../utilities/avatar_generator'
 class AvatarsController < ApplicationController
   before_action :set_avatar, only: [:show, :edit, :update, :destroy]
 
@@ -25,9 +26,14 @@ class AvatarsController < ApplicationController
   # POST /avatars.json
   def create
     @avatar = Avatar.new(avatar_params)
-
+  
     respond_to do |format|
       if @avatar.save
+        unless @avatar.generated
+          @avatar.image_location = AvatarGenerator.from_seed(@avatar.id)
+          @avatar.generated = true
+          @avatar.save
+        end
         format.html { redirect_to @avatar, notice: 'Avatar was successfully created.' }
         format.json { render :show, status: :created, location: @avatar }
       else
