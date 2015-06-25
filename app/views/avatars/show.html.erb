@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @avatar.image_location, size:"50x50" if @avatar.generated %>
+
+<p>
+  <strong>User:</strong>
+  <%= @avatar.user_id %>
+</p>
+
+<p>
+  <strong>Generated:</strong>
+  <%= @avatar.generated %>
+</p>
+
+<p>
+  <strong>Image location:</strong>
+  <%= @avatar.image_location %>
+</p>
+
+<%= link_to 'Edit', edit_avatar_path(@avatar) %> |
+<%= link_to 'Back', avatars_path %>
