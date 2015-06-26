@@ -16,7 +16,7 @@
   <tbody>
     <% @avatars.each do |avatar| %>
       <tr>
-        <td><%= image_tag avatar.image_location, size: "50x50" if avatar.generated %></td>
+        <td><%= image_tag avatar.image_location, size: "150x150" if avatar.generated %></td>
         <td><%= avatar.user_id %></td>
         <td><%= avatar.generated %></td>
         <td><%= avatar.image_location %></td>
