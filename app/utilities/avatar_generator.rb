@@ -4,7 +4,7 @@ require 'yaml'
 
 class AvatarGenerator
 
-ITERATIONS = *(90..150)
+ITERATIONS = *(110..190)
 RGB = *(0..255)
 ALPHA = *(0..255)
 X_MAX = 600
@@ -14,9 +14,7 @@ Y = *(0..Y_MAX-1)
 
   def self.from_seed(seed)
     png = ChunkyPNG::Image.new(X_MAX, Y_MAX, random_color)
-    doge = ChunkyPNG::Image.from_file('app/assets/images/doge.png')
-    backwards_doge = ChunkyPNG::Image.from_file('app/assets/images/doge-left.png')
-
+    
     pepper_with_color(png)
 
     config = YAML.load_file('config/sprinkles.yml')

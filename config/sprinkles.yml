@@ -15,15 +15,15 @@
   :rate: 33
   :min: 1
   :max: 1
-- :location: app/assets/images/sprinkles/cblogo.png
-  :rate: 100
-  :min: 1
-  :max: 1
 - :location: app/assets/images/sprinkles/castle.png
   :rate: 33
   :min: 1
   :max: 1
 - :location: app/assets/images/sprinkles/ironman.png
   :rate: 33
+  :min: 1
+  :max: 1
+- :location: app/assets/images/sprinkles/cblogo.png
+  :rate: 100
   :min: 1
   :max: 1
